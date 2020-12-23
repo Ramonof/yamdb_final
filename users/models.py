@@ -42,19 +42,21 @@ class User(AbstractUser):
 
     @property
     def is_admin(self):
-        if (self.is_staff==True or
-            self.is_superuser==True or
-            self.role==self.UserRole.admin):
+        if (self.is_staff is True or
+                self.is_superuser is True or
+                self.role == self.UserRole.admin):
             return True
         else:
             return False
 
     @property
     def is_moderator(self):
-        if (self.is_admin or self.role==self.UserRole.moderator):
+
+        if (self.is_admin or self.role == self.UserRole.moderator):
+
             return True
         else:
-            return False
 
+            return False
 
     objects = UserManager()

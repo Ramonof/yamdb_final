@@ -78,6 +78,7 @@ def user_csv_update(request):
     csv_file = request.data.get('file')
     data_set = csv_file.read().decode('UTF-8')
     io_string = io.StringIO(data_set)
+    serializer = UserSerializer(request.user, data=request.data, partial=True)
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar="|"):
         _, created = User.objects.update_or_create(
@@ -122,7 +123,7 @@ class LCDViewSet(
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.DestroyModelMixin,
-    viewsets.GenericViewSet):
+        viewsets.GenericViewSet):
     pass
 
 
