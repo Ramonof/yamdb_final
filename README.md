@@ -1,4 +1,4 @@
-![yamdb_workflow Action Status](https://github.com/Ramonof/yamdb_final/workflows/yamdb_workflow/badge.svg) [yamdb workflow](https://github.com/Liderk/yamdb_final/workflows/yamdb%20workflow/badge.svg?branch=master)
+![yamdb_workflow Action Status](https://github.com/Ramonof/yamdb_final/workflows/yamdb%20workflow/badge.svg)
 # Continuous Integration проекта YaMDB
 
 ## Установка
