@@ -44,7 +44,7 @@ class User(AbstractUser):
     def is_admin(self):
         if (self.is_staff is True
             or self.is_superuser is True
-            or self.role == self.UserRole.admin):
+                or self.role == self.UserRole.admin):
             return True
         else:
             return False
