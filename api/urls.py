@@ -13,9 +13,9 @@ router.register('titles', TitleViewSet)
 router.register('titles/(?P<title_id>[^/.]+)/reviews', ReviewViewSet,
                 basename='review')
 router.register(
-        'titles/(?P<title_id>[^/.]+)/reviews/(?P<review_id>[^/.]+)/comments',
-        CommentViewSet,
-        basename='comment')
+    'titles/(?P<title_id>[^/.]+)/reviews/(?P<review_id>[^/.]+)/comments',
+    CommentViewSet,
+    basename='comment')
 
 
 auth_patterns = [

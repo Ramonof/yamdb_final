@@ -105,7 +105,7 @@ class CommentSerializer(serializers.ModelSerializer):
         attrs['review'] = get_object_or_404(Review,
                                             id=self.context['view'].kwargs[
                                                 'review_id'],
-                                            title_id=
-                                            self.context['view'].kwargs[
+                                            title_id=self.context[
+                                                'view'].kwargs[
                                                 'title_id'])
         return attrs
