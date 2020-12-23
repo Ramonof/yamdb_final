@@ -19,7 +19,7 @@ jobs:
         pip install flake8 pytest
         pip install -r requirements.txt
     - name: Lint with flake8
-      run: flake8 --exclude tests,api_yamdb,api/migrations --ignore = F841,E501,W503
+      run: flake8 --exclude tests,api_yamdb,api/migrations --ignore F841,E501,W503
 
     - name: Test with pytest
       run: |
