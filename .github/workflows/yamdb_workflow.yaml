@@ -46,7 +46,7 @@ jobs:
           repository: sergrampro/yamdb
           tag_with_ref: true
 
-   deploy:
+  deploy:
     runs-on: ubuntu-latest
     needs: push_to_docker_hub
     steps:
