@@ -44,19 +44,28 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: push_to_docker_hub
-    steps:
-      - uses: actions/checkout@master
-
-      - name: executing remote ssh commands to deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
+    steps: 
+      - uses: actions/checkout@master 
+      - name: copy docker-compose.yaml file to remote 
+        uses: appleboy/scp-action@master 
+        with: 
+          host: ${{ secrets.HOST }} 
+          username: ${{ secrets.USER }} 
+          key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: |
-            sudo docker pull sergrampro/yamdb
+          source: "./docker-compose.yaml, nginx" 
+          target: "./" 
+      - name: executing remote ssh commands to deploy 
+        uses: appleboy/ssh-action@master 
+        with: 
+          host: ${{ secrets.HOST }} 
+          username: ${{ secrets.USER }} 
+          key: ${{ secrets.SSH_KEY }} 
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: | 
+            sudo docker-compose pull sergrampro/yamdb 
             sudo docker-compose stop
+            sudo docker-compose image rm
             sudo docker-compose up --build -d
 
   send_message:
