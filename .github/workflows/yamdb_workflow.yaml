@@ -58,7 +58,7 @@ jobs:
           username: ${{ secrets.USER }} 
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "./docker-compose.yaml" 
+          source: "./docker-compose.yaml, nginx" 
           target: "./" 
       - name: executing remote ssh commands to deploy 
         uses: appleboy/ssh-action@master 
@@ -72,7 +72,7 @@ jobs:
             sudo docker-compose stop
             sudo docker-compose up --build -d
   
-  
+
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
