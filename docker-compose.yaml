@@ -11,8 +11,7 @@ services:
     image: postgres:12.4 
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - /home/***/.env
+
 
   web:
     image: sergrampro/yamdb:latest
@@ -23,8 +22,7 @@ services:
       - media_volume:/code/media:rw
     depends_on:
       - db
-    env_file:
-      - /home/***/.env
+
 
   nginx:
     image: nginx:1.19.2
