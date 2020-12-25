@@ -61,8 +61,8 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker pull sergrampro/yamdb
-            sudo docker-compose.yaml stop
-            sudo docker-compose.yaml up --build -d
+            sudo docker-compose stop
+            sudo docker-compose up --build -d
 
   send_message:
     runs-on: ubuntu-latest
