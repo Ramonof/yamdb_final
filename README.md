@@ -65,3 +65,4 @@ docker-compose down
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
+Ссылка на сайт https://www.alphaproject.ml/about-author/
