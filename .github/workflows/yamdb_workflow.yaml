@@ -58,7 +58,7 @@ jobs:
           username: ${{ secrets.USER }} 
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "./docker-compose.yaml" 
+          source: "./docker-compose.yaml, nginx" 
           target: "./" 
       - name: executing remote ssh commands to deploy 
         uses: appleboy/ssh-action@master 
@@ -68,7 +68,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
           script: | 
-            cd ./
             sudo docker-compose pull sergrampro/yamdb 
             sudo docker-compose stop
             sudo docker-compose up --build -d
