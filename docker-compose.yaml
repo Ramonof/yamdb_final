@@ -16,7 +16,7 @@ services:
   web:
     image: sergrampro/yamdb:latest
     restart: always
-    command: sh -c "python manage.py migrate && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:5000"
     volumes:
       - static_volume:/code/static
       - media_volume:/code/media:rw
@@ -32,6 +32,6 @@ services:
       - media_volume:/code/media
 
     ports:
-      - 8084:80
+      - 80:80
     depends_on:
       - web
