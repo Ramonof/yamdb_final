@@ -68,7 +68,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
           script: | 
-            sudo docker-compose pull sergrampro/yamdb 
             sudo docker-compose stop
             sudo docker-compose up --build -d
   
