@@ -16,13 +16,14 @@ services:
 
 
   web:
+    # image: sergrampro/yamdb:latest
     build: .
     restart: always
     ports:
       - "5000:5000"
     volumes:
       - static_volume:/code/static
-      - media_volume:/code/media:rw
+      - media_volume:/code/media
     depends_on:
       - db
     env_file:
