@@ -21,3 +21,7 @@ __pycache__/
 posts/static/
 
 db.sqlite3
+
+key.json
+id_rsa.pub
+id_rsa
