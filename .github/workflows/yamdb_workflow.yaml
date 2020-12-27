@@ -69,7 +69,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
           script: | 
-            sudo docker pull praktikum/yamdb
+            sudo docker pull sergrampro/yamdb
             sudo docker-compose stop
             sudo docker-compose rm
             sudo docker-compose build
