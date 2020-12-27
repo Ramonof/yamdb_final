@@ -32,6 +32,6 @@ services:
       - media_volume:/code/media
 
     ports:
-      - 8084:80
+      - 80:80
     depends_on:
       - web
