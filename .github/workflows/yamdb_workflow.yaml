@@ -27,6 +27,7 @@ jobs:
         export SECRET_KEY=secrets.SECRET_KEY
         export DB_ENGINE=${{ secrets.DB_ENGINE }}
         pytest
+
   push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -68,8 +69,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           passphrase: ${{ secrets.PASSPHRASE }}
           script: | 
+            sudo docker pull praktikum/yamdb
             sudo docker-compose stop
-            sudo docker-compose up --build -d
+            sudo docker-compose rm
+            sudo docker-compose build
+            sudo docker-compose up
 
   send_message:
     runs-on: ubuntu-latest

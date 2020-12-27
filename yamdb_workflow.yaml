@@ -64,7 +64,9 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: | 
             sudo docker-compose stop
-            sudo docker-compose up --build -d
+            sudo docker-compose rm
+            sudo docker-compose build
+            sudo docker-compose up
 
   send_message:
     runs-on: ubuntu-latest
