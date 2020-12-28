@@ -72,7 +72,8 @@ jobs:
             sudo docker pull sergrampro/yamdb_final
             sudo docker-compose stop
             sudo docker-compose rm
-            sudo docker-compose up --build -d
+            sudo docker-compose build
+            sudo docker-compose up
 
   send_message:
     runs-on: ubuntu-latest
