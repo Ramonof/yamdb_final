@@ -11,8 +11,10 @@ services:
     image: postgres:12.4 
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    # env_file:
+    #   - ./.env
 
 
   web:
@@ -26,8 +28,8 @@ services:
       - media_volume:/code/media
     depends_on:
       - db
-    env_file:
-      - ./.env
+    # env_file:
+    #   - ./.env
 
 
   nginx:
